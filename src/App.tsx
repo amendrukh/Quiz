@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Routes, Route} from "react-router-dom";
+import {Layout} from "./components/Layout";
+import {HomePage} from "./components/HomePage";
+import {useQuestions} from "./api/questions";
+import {Registration} from "./components/Registration";
+import {Quiz} from "./components/Quiz";
+import {Winner} from "./components/Winner";
+import {NotFoundPage} from "./components/NotFoundPage";
+import {AlertProvider} from "./alert/AlertContext";
+import {Alert} from "./alert/Alert";
+import {PlayerProvider} from "./player/playerContext";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const {questions, loading, error} = useQuestions();
+
+    if (questions.length === 0) {
+        return null;
+    }
+
+    return (
+        <div>
+            <AlertProvider>
+                <Alert/>
+                {loading && <div>Loading...</div>}
+                {error && <div>Error</div>}
+                <PlayerProvider>
+                    <Routes>
+                        <Route path="/" element={<Layout/>}>
+                            <Route index element={<HomePage/>}/>
+                            <Route path="registration"
+                                   element={<Registration/>}/>
+                            <Route path="quiz" element={questions && <Quiz questions={questions}/>}></Route>
+                            <Route path="quiz/winner" element={<Winner questions={questions}/>}></Route>
+                            <Route path="*" element={<NotFoundPage/>}/>
+                        </Route>
+                    </Routes>
+                </PlayerProvider>
+            </AlertProvider>
+        </div>
+    );
 }
 
 export default App;

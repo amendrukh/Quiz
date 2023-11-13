@@ -1,9 +1,9 @@
-export function HomePage() {
+import {Outlet} from "react-router-dom";
 
+function Layout() {
     return (
-        <div>
-            <div>Are you ready?</div>
-            <button>YES</button>
-       </div>
-    )
+       <Outlet/>
+    );
 }
+
+export {Layout};
