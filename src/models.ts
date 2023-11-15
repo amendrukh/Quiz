@@ -45,7 +45,9 @@ interface IPlayerContext {
     playerData: ILocalStorage, //local
     updatePlayerData: (text: string) => void, //local
     playerInfo: IPlayer, //obj
-    updatePlayerInfo: (object: IPlayer) => void //obj
+    updatePlayerInfo: (object: IPlayer) => void,
+    category: string | undefined,
+    updateCategory: (category:string) => void//obj
 
 }
 

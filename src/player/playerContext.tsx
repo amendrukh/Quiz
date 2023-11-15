@@ -16,6 +16,11 @@ const PlayerContext = React.createContext<IPlayerContext>({
     },
     updatePlayerInfo: () => {
     },
+
+    category: "any",
+
+    updateCategory: () => {
+    }
 });
 
 
@@ -31,8 +36,11 @@ const PlayerProvider = ({children}: IAlertProvider) => {
 
     const [player, setPlayer] = useState<IPlayer>({name: playerName.name, answers: {}, points: 0});
 
+    const [category, setCategory] = useState<string>("any");
+
     const updatePlayerData = (name: string) => setPlayerName({...playerName, name: name});
     const updatePlayerInfo = (object: IPlayer) => setPlayer(object);
+    const updateCategory = (category:string) => setCategory(category);
 
     return (
         <PlayerContext.Provider value={
@@ -40,7 +48,9 @@ const PlayerProvider = ({children}: IAlertProvider) => {
                 playerData: playerName,
                 updatePlayerData: updatePlayerData,
                 playerInfo: player,
-                updatePlayerInfo: updatePlayerInfo
+                updatePlayerInfo: updatePlayerInfo,
+                category: category,
+                updateCategory: updateCategory
             }
         }>
             {children}

@@ -1,6 +1,7 @@
 import axios, {AxiosError} from "axios";
 import {IQuestion} from "../models";
 import {useEffect, useState} from "react";
+import {usePlayer} from "../player/playerContext";
 
 interface IQuestions {
     questions: IQuestion[],
@@ -9,16 +10,27 @@ interface IQuestions {
 }
 
 export function useQuestions(): IQuestions {
+    const {category} = usePlayer();
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
-    async function fetchQuestions() {
+    const apiUrl = category === "any" ? `https://opentdb.com/api.php?amount=10`
+        : `https://opentdb.com/api.php?amount=10&category=${category}`;
+
+    async function fetchQuestions(url:string) {
+
         try {
             setError("");
             setLoading(true);
-            const response = await axios.get("https://opentdb.com/api.php?amount=10");
-            console.log(response)
+
+
+
+
+            const response = await axios.get(url);
+
+
+
             setQuestions(response.data.results)
             setLoading(false);
 
@@ -31,7 +43,7 @@ export function useQuestions(): IQuestions {
     }
 
     useEffect(() => {
-        fetchQuestions().then(response => response)
+           fetchQuestions(apiUrl).then(response => response)
     }, [])
 
     return {questions, loading, error}

@@ -3,9 +3,10 @@ import {useNavigate} from "react-router-dom";
 import {useAlert} from "../alert/AlertContext";
 import {usePlayer} from "../player/playerContext";
 import {IValidatePlayerName} from "../models";
+import {Category} from "./Category";
 
 function Registration() {
-    console.log(0)
+
     const {toggleVisible, toggleMessage} = useAlert();
     const [inputValue, setInputValue] = useState("");
     const {updatePlayerData} = usePlayer();
@@ -14,7 +15,6 @@ function Registration() {
     const goQuiz = () => navigate("/quiz", {replace: true});
 
     async function validatePlayerName({e, name}: IValidatePlayerName) {
-        console.log(0)
         e.preventDefault();
         const pattern = /^[a-zA-Z]{2,10}$/;
         const validateName = (namePlayer: string, pattern: RegExp) => pattern.test(name);
@@ -30,11 +30,9 @@ function Registration() {
             return toggleVisible();
         }
 
-        console.log(1)
         await updatePlayerData(modStr(name));
-        console.log(2)
+
         await goQuiz();
-        console.log(3)
     }
 
     return (
@@ -45,6 +43,7 @@ function Registration() {
                         setInputValue(e.target.value);
                     }}/>
                 </label>
+                <Category/>
                 <button onClick={(e) => validatePlayerName({e, name: inputValue})}>Start</button>
             </form>
         </div>
