@@ -1,0 +1,83 @@
+@import "src/styles/general";
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  font: {
+    family: map-get($font-family, "Baloo");
+    size: 1rem;
+    weight: normal;
+  }
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.homePage {
+  display: flex;
+  flex-direction: column;
+
+  .homePage__el {
+    display: inline-flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .homePage__el-logo, .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20%;
+      height: 80%;
+      border-radius: 50%;
+      background-color: map-get($colors, "white");
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+      .logo__title {
+        position: relative;
+        font: {
+          size: 5rem;
+          weight: bold;
+        }
+        color: map-get($colors, "dark teal");
+        text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+        .logo__title-subtitle {
+          position: absolute;
+          font: {
+            size: 2.5rem;
+            weight: bold;
+          }
+          top: 70px;
+          left: 70px;
+          color: map-get($colors, "yello-orange");
+        }
+
+      }
+    }
+
+    .homePage__el-title {
+      font: {
+        size: 4rem;
+        weight: bold;
+      }
+      color: map-get($colors, "white");
+    }
+
+    .homePage__el-btn {
+      width: 20%;
+      height: 20%;
+      font: {
+        size: 2rem;
+        weight: bold;
+      }
+      background-color: map-get($colors, "yello-orange");
+      border: unset;
+      border-radius: 10px;
+    }
+  }
+}

@@ -1,7 +1,8 @@
-import {usePlayer} from "../player/playerContext";
-import {CustomLink} from "./CustomLink";
+import {usePlayer} from "../../player/playerContext";
+import {CustomLink} from "../CustomLink";
 import React from "react";
-import {Navigate, useLocation, useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
+import "./homePage.scss";
 
 function HomePage() {
     const {playerData} = usePlayer();
@@ -27,11 +28,23 @@ function HomePage() {
     }
 
     return (
-        <div>
-            <div>Are you ready?</div>
-            <button>
-                <CustomLink to="/registration">YES</CustomLink>
-            </button>
+        <div className="container homePage">
+            <div className="homePage__el">
+                <div className="homePage__el-logo logo">
+                    <div className="logo__title">Quiz
+                        <span className="logo__title-subtitle">Mix</span>
+                    </div>
+
+                </div>
+
+            </div>
+            <div className="homePage__el">
+                <div className="homePage__el-title">Are you ready?</div>
+                <button className="homePage__el-btn">
+                    <CustomLink to="/registration">YES</CustomLink>
+                </button>
+            </div>
+
         </div>
     )
 }

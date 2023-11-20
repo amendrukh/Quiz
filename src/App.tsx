@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
+import './styles/App.scss';
 import {Routes, Route} from "react-router-dom";
 import {Layout} from "./components/Layout";
-import {HomePage} from "./components/HomePage";
+import {HomePage} from "./components/HomePage/HomePage";
 import {Registration} from "./components/Registration";
 import {Quiz} from "./components/Quiz";
 import {NotFoundPage} from "./components/NotFoundPage";
@@ -14,7 +14,7 @@ import {Winner} from "./components/Winner";
 
 function App() {
     return (
-        <div>
+        <div className="App">
             <AlertProvider>
                 <Alert/>
                 <PlayerProvider>

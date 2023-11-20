@@ -11,7 +11,7 @@ export const CustomLink = ({children,  to, ...props}:IAlertProvider) => {
     const match = useMatch(to)
     return (
         <Link to={to}
-              style ={{color: match ? "white" : "red"}}
+              style ={{color: match ? "#004643" : "white"}}
               {...props}>
             {children}
         </Link>

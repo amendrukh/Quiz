@@ -1,0 +1,16 @@
+@use "sass:map";
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&display=swap");
+
+$colors: (
+        "dark teal": #004643,
+        "white": #FFFFFF,
+        "yello-orange" : #F8C660,
+        "black": #000000,
+        "light-gray": #eff0f3,
+
+);
+
+$font-family: (
+  "Baloo" : "Baloo 2, sans-serif;"
+);
+
