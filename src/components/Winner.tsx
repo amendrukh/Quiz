@@ -1,11 +1,15 @@
 import React, {ReactNode, useState} from "react";
 import {usePlayer} from "../player/playerContext";
 import {heDecoder} from "../utils/decoder";
-import {IQuestion, IQuiz} from "../models";
+import {IQuestion} from "../models";
+import {useLocation} from "react-router-dom";
 
-function Winner({questions}: IQuiz) {
+function Winner() {
+    const location = useLocation();
+    const questions = location.state?.questions;
     const {playerInfo} = usePlayer();
     const [isActive, setIsActive] = useState(false);
+
 
     function generateStatePlayer(points: number) {
         switch (points) {
@@ -72,7 +76,7 @@ function Winner({questions}: IQuiz) {
                     <div>
                         <div>Correct answer: {heDecoder(el.correct_answer)}</div>
                         <div>
-                            {playerInfo.answers[index] === undefined ? "You didn`t answer the question " : `Player answer: ${playerInfo.answers[index]}`}
+                            {playerInfo.answers[index] === undefined ? "You did not answer the question " : `Player answer: ${playerInfo.answers[index]}`}
                         </div>
 
                     </div>

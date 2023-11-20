@@ -7,9 +7,7 @@ function HomePage() {
     const {playerData} = usePlayer();
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(navigate)
     const goCategory = () => navigate("/category", {replace: true, state: {player: true}});
-    console.log(goCategory)
 
     if (playerData.name) {
         return (

@@ -5,24 +5,20 @@ import {useNavigate} from "react-router-dom";
 import {Question} from "./Question";
 import {QuizButtonType} from "../enums/quiz-button-type.enum";
 import {useQuestions} from "../api/questions";
-import {Alert} from "../alert/Alert";
-import {AlertProvider} from "../alert/AlertContext";
 
 function Quiz() {
-    console.log(123)
     const {questions, loading, error} = useQuestions();
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const {toggleVisible, toggleMessage} = useAlert();
     const {playerInfo, updatePlayerInfo} = usePlayer();
     const navigate = useNavigate();
-    const goWinner = () => navigate("/quiz/winner", {replace: true});
+    const goWinner = () => navigate("winner", {replace: true, state: {questions}});
 
-    if (questions.length === 0) {
-        return null;
-    }
+    // if (questions.length === 0) {
+    //     return null;
+    // }
     const initialQuestion = questions[currentQuestion];
 
-    console.log(questions)
     function warningMessage() {
         if (playerInfo.answers[currentQuestion] !== undefined) return;
         toggleMessage("You left the question unanswered. But you can come back and give an answer.");
@@ -54,6 +50,7 @@ function Quiz() {
         } else {
             updatePoints();
             if (currentQuestion === questions.length - 1) {
+                console.log(123)
                 return goWinner();
             }
             setCurrentQuestion(prev => prev + 1);
@@ -63,24 +60,25 @@ function Quiz() {
 
     return (
         <div className="App">
-            <AlertProvider>
-                <Alert/>
-                {loading && <div>Loading...</div>}
-                {error && <div>Error</div>}
+            {loading && <div>Loading..</div>}
+            {error && <div>Error..</div>}
+            {questions.length !==0 && <div>
                 <div>{playerInfo.points} - {playerInfo.answers[currentQuestion]}</div>
                 <button onClick={(e) => {
                     changeQuestion(e, QuizButtonType.Prev);
                     warningMessage();
                 }}>Prev
                 </button>
-                <Question key={`question-${currentQuestion}`} question={initialQuestion} id={currentQuestion}/>
+                {questions &&
+                    <Question key={`question-${currentQuestion}`} question={initialQuestion} id={currentQuestion}/>}
                 <button onClick={(e) => {
                     warningMessage();
                     changeQuestion(e, QuizButtonType.Next);
                 }}>
                     {currentQuestion !== questions.length - 1 ? "Next" : "Submit"}
                 </button>
-            </AlertProvider>
+            </div>}
+
         </div>
     )
 }

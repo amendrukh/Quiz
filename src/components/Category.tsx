@@ -6,7 +6,7 @@ export function Category() {
     const {category, updateCategory} = usePlayer();
     const location = useLocation();
     const isLogin = location.state?.player;
-    console.log(isLogin)
+
     const navigate = useNavigate();
     const goQuiz = () => navigate("/quiz", {replace: true});
 

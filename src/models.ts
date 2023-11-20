@@ -1,7 +1,7 @@
 import React, {ReactNode} from "react";
 
 interface IValidatePlayerName {
-    e: React.MouseEvent,
+    e: React.ChangeEvent
     name: string
 }
 
@@ -38,7 +38,7 @@ interface ILocalStorage {
 }
 
 interface IQuiz {
-    questions: IQuestion[],
+    questions: IQuestion[] | [],
 }
 
 interface IPlayerContext {

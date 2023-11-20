@@ -15,7 +15,7 @@ export function useQuestions(): IQuestions {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
-    const apiUrl = category === "any" ? `https://opentdb.com/api.php?amount=10`
+    const apiUrl = category === undefined ? `https://opentdb.com/api.php?amount=10`
         : `https://opentdb.com/api.php?amount=10&category=${category}`;
 
     async function fetchQuestions(url:string) {
@@ -24,18 +24,14 @@ export function useQuestions(): IQuestions {
             setError("");
             setLoading(true);
 
-
-
-
             const response = await axios.get(url);
-
-
 
             setQuestions(response.data.results)
             setLoading(false);
 
         } catch (e) {
             const error = e as AxiosError;
+
             setLoading(false);
             setError(error.message);
             setQuestions([])
@@ -43,7 +39,7 @@ export function useQuestions(): IQuestions {
     }
 
     useEffect(() => {
-           fetchQuestions(apiUrl).then(response => response)
+            fetchQuestions(apiUrl).then(response => response);
     }, [])
 
     return {questions, loading, error}

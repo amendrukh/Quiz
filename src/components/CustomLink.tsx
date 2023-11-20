@@ -1,5 +1,6 @@
 import {Link, useMatch} from "react-router-dom";
 import React from "react";
+import {IQuestion} from "../models";
 
 interface IAlertProvider {
     to:string
