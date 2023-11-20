@@ -3,13 +3,13 @@ import './styles/App.scss';
 import {Routes, Route} from "react-router-dom";
 import {Layout} from "./components/Layout";
 import {HomePage} from "./components/HomePage/HomePage";
-import {Registration} from "./components/Registration";
+import {Registration} from "./components/Registration/Registration";
 import {Quiz} from "./components/Quiz";
 import {NotFoundPage} from "./components/NotFoundPage";
 import {AlertProvider} from "./alert/AlertContext";
 import {Alert} from "./alert/Alert";
 import {PlayerProvider} from "./player/playerContext";
-import {Category} from "./components/Category";
+import {Category} from "./components/Category/Category";
 import {Winner} from "./components/Winner";
 
 function App() {

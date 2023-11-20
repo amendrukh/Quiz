@@ -1,5 +1,5 @@
 import {ChangeEvent} from "react";
-import {usePlayer} from "../player/playerContext";
+import {usePlayer} from "../../player/playerContext";
 import {useLocation, useNavigate} from "react-router-dom";
 
 export function Category() {
@@ -16,8 +16,8 @@ export function Category() {
 
     return (
         <>
-            <label htmlFor="category">Select a category of questions:</label>
-            <select name="category" onChange={(e) => getCategory(e)} value={category}>
+            <label className="category__label" htmlFor="category">Select a category of questions:</label>
+            <select className="category__select" name="category" onChange={(e) => getCategory(e)} value={category}>
                 <option value="any">Any Category</option>
                 <option value="9">General Knowledge</option>
                 <option value="10">Entertainment: Books</option>

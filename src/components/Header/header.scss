@@ -1,0 +1,41 @@
+@import "src/styles/general";
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .header__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: map-get($colors, "white");
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    .icon__title {
+      position: relative;
+      font: {
+        size: 5rem;
+        weight: bold;
+      }
+      color: map-get($colors, "dark teal");
+      text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+      .icon__subtitle {
+        position: absolute;
+        font: {
+          size: 2.5rem;
+          weight: bold;
+        }
+        top: 80px;
+        left: 80px;
+        color: map-get($colors, "yello-orange");
+      }
+    }
+  }
+}

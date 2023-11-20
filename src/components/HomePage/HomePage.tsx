@@ -3,6 +3,7 @@ import {CustomLink} from "../CustomLink";
 import React from "react";
 import {useLocation, useNavigate} from "react-router-dom";
 import "./homePage.scss";
+import {Header} from "../Header/Header";
 
 function HomePage() {
     const {playerData} = usePlayer();
@@ -28,24 +29,17 @@ function HomePage() {
     }
 
     return (
-        <div className="container homePage">
-            <div className="homePage__el">
-                <div className="homePage__el-logo logo">
-                    <div className="logo__title">Quiz
-                        <span className="logo__title-subtitle">Mix</span>
-                    </div>
-
+        <>
+            <Header/>
+            <div className="container homePage">
+                <div className="homePage__desc desc">
+                    <div className="desc__title">Are you ready?</div>
+                    <button className="desc__btn">
+                        <CustomLink to="/registration">YES</CustomLink>
+                    </button>
                 </div>
-
             </div>
-            <div className="homePage__el">
-                <div className="homePage__el-title">Are you ready?</div>
-                <button className="homePage__el-btn">
-                    <CustomLink to="/registration">YES</CustomLink>
-                </button>
-            </div>
-
-        </div>
+        </>
     )
 }
 
