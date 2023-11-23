@@ -13,7 +13,7 @@ function Registration() {
     const [errorMessage, setErrorMessage] = useState<string | undefined | null>(undefined);
     const {updatePlayerData} = usePlayer();
 
-function validatePlayerName({e, name}: IValidatePlayerName) {
+    function validatePlayerName({e, name}: IValidatePlayerName) {
         e.preventDefault();
 
         setInputValue(name);
@@ -24,11 +24,11 @@ function validatePlayerName({e, name}: IValidatePlayerName) {
         setErrorMessage(null);
 
         if (name === "") {
-         return  setErrorMessage("Enter your name")
+            return setErrorMessage("Enter your name")
         }
 
         if (!validateName(name, pattern)) {
-            return  setErrorMessage("Name must include only letters!..")
+            return setErrorMessage("Name must include only letters!..")
         }
 
     }
@@ -47,24 +47,29 @@ function validatePlayerName({e, name}: IValidatePlayerName) {
 
     return (
         <>
-            <Header/>
-            <div className="container registration">
-                <form className="registration__form form">
-                    <div className="form__item">
-                        <label className="form__item-label">Enter your name:  </label>
-                        <div className="form__item-playerName playerName">
-                            <input  className="playerName__input" placeholder={"John Deh.."} type="text" onBlur={(e) => {
-                                validatePlayerName({e, name: e.target.value});
-                            }}/>
+            <div className="registration">
+                <div className="registration__header">
+                    <Header/>
+                </div>
+                <div className="registration__main">
+                    <form className="registration__main-form form">
+                        <div className="form__item">
+                            <label className="form__item-label">Enter your name: </label>
+                            <div className="form__item-playerName playerName">
+                                <input className="playerName__input" placeholder={"John Deh.."} type="text"
+                                       onBlur={(e) => {
+                                           validatePlayerName({e, name: e.target.value});
+                                       }}/>
                                 {errorMessage && <span className="playerName__errorMessage">{errorMessage}</span>}
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="form__item">
-                        <Category/>
-                    </div>
-                    <button className="form__btn" onClick={(e) => submit(e)}>Start</button>
-                </form>
+                        <div className="form__item">
+                            <Category/>
+                        </div>
+                        <button className="form__btn btn" onClick={(e) => submit(e)}>Start</button>
+                    </form>
+                </div>
             </div>
         </>
     )

@@ -4,7 +4,7 @@ import {Routes, Route} from "react-router-dom";
 import {Layout} from "./components/Layout";
 import {HomePage} from "./components/HomePage/HomePage";
 import {Registration} from "./components/Registration/Registration";
-import {Quiz} from "./components/Quiz";
+import {Quiz} from "./components/Quiz/Quiz";
 import {NotFoundPage} from "./components/NotFoundPage";
 import {AlertProvider} from "./alert/AlertContext";
 import {Alert} from "./alert/Alert";
@@ -15,6 +15,7 @@ import {Winner} from "./components/Winner";
 function App() {
     return (
         <div className="App">
+            <div className="bubble"></div>
             <AlertProvider>
                 <Alert/>
                 <PlayerProvider>

@@ -8,6 +8,7 @@ input {
 }
 
 select {
+  width: 100%;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -19,24 +20,55 @@ select {
     weight: normal;
   }
   text-align: center;
-  background-color: map-get($colors, "dark teal");
+  background-color: unset;
   color: map-get($colors, "white");
+  cursor: pointer;
+}
+
+select:focus-visible {
+  outline: none;
+  border-color: transparent;
+  box-shadow: unset;
+}
+
+select:focus,
+select:hover
+{
+  box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.25);
+}
+
+select option {
+  padding: 10px;
+  font-size: 16px;
 }
 
 .registration {
-  padding: unset;
-  margin: unset;
   width: 100%;
-  height: 49%;
+  height: 100%;
 
-  .registration__form {
+  .registration__header {
+    height: 50%;
+  }
+
+  .registration__main {
+    display: flex;
+    width: 100%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .registration__main-form {
+    width: 100%;
+    height: 80%;
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     .form__item {
-      width: 100%;
-      height: 100%;
+      width: 50%;
+      height: 80%;
       display: inline-flex;
       flex-direction: column;
       align-items: center;
@@ -47,30 +79,35 @@ select {
       }
 
       .form__item-label {
-        width: 50%;
+        width: 100%;
       }
 
       .playerName {
         position: relative;
-        width: 50%;
+        width: 100%;
         height: 100%;
         text-align: center;
 
         .playerName__input {
+          width: 100%;
           font: {
             size: 1.5rem;
             weight: normal;
           }
           text-align: center;
-          background-color: map-get($colors, "dark teal");
+          background-color: unset;
+          color: map-get($colors, "white");
 
         }
 
-        .playerName__input:focus {
+        .playerName__input:focus,
+        .playerName__input:hover {
           color: map-get($colors, "white");
+          box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.25);
         }
 
         .playerName__errorMessage {
+          padding: 0 0 0 10px;
           font: {
             size: 1rem;
             weight: normal;
@@ -83,21 +120,10 @@ select {
       }
 
     }
-
-    .form__btn {
-      display: inline-block;
-      width: 20%;
-      height: 20%;
-      font: {
-        size: 2rem;
-        weight: bold;
-      }
-      background-color: map-get($colors, "yello-orange");
-      color: map-get($colors, "white");
-      border: unset;
-      border-radius: 10px;
-      margin: auto;
-      cursor: pointer;
+    .form__btn:hover {
+      background-color: map-get($colors, "white");
+      color: map-get($colors, "yello-orange");
+      box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.25);
     }
   }
 }

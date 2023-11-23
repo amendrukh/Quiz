@@ -1,10 +1,11 @@
 import React, {useState} from "react";
-import {useAlert} from "../alert/AlertContext";
-import {usePlayer} from "../player/playerContext";
+import {useAlert} from "../../alert/AlertContext";
+import {usePlayer} from "../../player/playerContext";
 import {useNavigate} from "react-router-dom";
-import {Question} from "./Question";
-import {QuizButtonType} from "../enums/quiz-button-type.enum";
-import {useQuestions} from "../api/questions";
+import {Question} from "../Question";
+import {QuizButtonType} from "../../enums/quiz-button-type.enum";
+import {useQuestions} from "../../api/questions";
+import "../Quiz/quiz.scss"
 
 function Quiz() {
     const {questions, loading, error} = useQuestions();
@@ -50,7 +51,6 @@ function Quiz() {
         } else {
             updatePoints();
             if (currentQuestion === questions.length - 1) {
-                console.log(123)
                 return goWinner();
             }
             setCurrentQuestion(prev => prev + 1);
@@ -59,19 +59,29 @@ function Quiz() {
     }
 
     return (
-        <div className="App">
-            {loading && <div>Loading..</div>}
-            {error && <div>Error..</div>}
-            {questions.length !==0 && <div>
-                <div>{playerInfo.points} - {playerInfo.answers[currentQuestion]}</div>
-                <button onClick={(e) => {
+        <div className="quiz">
+            {loading && <div className="quiz__loader">
+                <div className="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>}
+            {error && <div className="quiz__error">Error..</div>}
+            {questions.length !==0 &&
+                <div className="quiz__main">
+                {/*<div>{playerInfo.points} - {playerInfo.answers[currentQuestion]}</div>*/}
+                <button className="quiz__main-item quiz__main-btn" onClick={(e) => {
                     changeQuestion(e, QuizButtonType.Prev);
                     warningMessage();
-                }}>Prev
+                }}>&lt; Previous
                 </button>
-                {questions &&
-                    <Question key={`question-${currentQuestion}`} question={initialQuestion} id={currentQuestion}/>}
-                <button onClick={(e) => {
+                <div className="quiz__main-item quiz__main-question">
+                    {questions &&
+                        <Question key={`question-${currentQuestion}`} question={initialQuestion} id={currentQuestion}/>}
+                </div>
+                <button className="quiz__main-item quiz__main-btn" onClick={(e) => {
                     warningMessage();
                     changeQuestion(e, QuizButtonType.Next);
                 }}>

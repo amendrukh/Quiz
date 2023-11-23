@@ -3,14 +3,17 @@ import React from "react";
 
 interface IAlertProvider {
     to:string
+    className?: string
     children: React.ReactNode;
 }
 
-export const CustomLink = ({children,  to, ...props}:IAlertProvider) => {
-    const match = useMatch(to)
+ export const CustomLink = ({children,  to, className, ...props}:IAlertProvider) => {
+     console.log(className)
+    const match = useMatch(to);
+     // const color = () => match ? "#004643" : "white";
     return (
         <Link to={to}
-              style ={{color: match ? "#004643" : "white"}}
+              className={`${className}`}
               {...props}>
             {children}
         </Link>
