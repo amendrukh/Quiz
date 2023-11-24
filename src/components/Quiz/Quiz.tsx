@@ -9,6 +9,7 @@ import "../Quiz/quiz.scss"
 
 function Quiz() {
     const {questions, loading, error} = useQuestions();
+    console.log(questions)
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const {toggleVisible, toggleMessage} = useAlert();
     const {playerInfo, updatePlayerInfo} = usePlayer();

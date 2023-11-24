@@ -5,42 +5,48 @@ input {
   padding: 0;
   border: none;
   outline: none;
+  background-color: #004643;
 }
 
-select {
+.select {
   width: 100%;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  padding: 0;
-  margin: 10px 0 40px 0;
-  border: unset;
-  font: {
-    size: 1.5rem;
-    weight: normal;
-  }
-  text-align: center;
+  color: map-get($colors, "black");
   background-color: unset;
-  color: map-get($colors, "white");
-  cursor: pointer;
 }
-
-select:focus-visible {
-  outline: none;
-  border-color: transparent;
-  box-shadow: unset;
-}
-
-select:focus,
-select:hover
-{
-  box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.25);
-}
-
-select option {
-  padding: 10px;
-  font-size: 16px;
-}
+//select {
+//  width: 100%;
+//  -webkit-appearance: none;
+//  -moz-appearance: none;
+//  appearance: none;
+//  padding: 0;
+//  margin: 10px 0 40px 0;
+//  border: unset;
+//  font: {
+//    size: 1.5rem;
+//    weight: normal;
+//  }
+//  text-align: center;
+//  //background-color: unset;
+//  color: black;
+//  cursor: pointer;
+//}
+//
+//select:focus-visible {
+//  outline: none;
+//  border-color: transparent;
+//  box-shadow: unset;
+//}
+//
+//select:focus,
+//select:hover
+//{
+//  box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.25);
+//}
+//
+//select option {
+//  padding: 10px;
+//  font-size: 16px;
+//}
 
 .registration {
   width: 100%;
@@ -127,4 +133,3 @@ select option {
     }
   }
 }
-

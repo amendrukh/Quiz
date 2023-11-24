@@ -14,6 +14,11 @@ interface IQuestion {
     type: string
 }
 
+interface ICategory {
+    id : number,
+    name: string
+}
+
 interface QuestionProps {
     question: IQuestion,
     id: number
@@ -57,5 +62,5 @@ interface IAlertProvider {
 
 export type {
     IValidatePlayerName, IQuestion, QuestionProps, quizDataProps, IPlayer, ILocalStorage, IQuiz, IPlayerContext,
-    IAlertProvider
+    IAlertProvider, ICategory
 }

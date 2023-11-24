@@ -2,10 +2,9 @@ import React, {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {usePlayer} from "../../player/playerContext";
 import {IValidatePlayerName} from "../../models";
-import {Category} from "../Category/Category";
+import {Categories} from "../Category/Categories";
 import {Header} from "../Header/Header";
 import "./registration.scss"
-
 
 function Registration() {
     const navigate = useNavigate();
@@ -65,7 +64,10 @@ function Registration() {
                         </div>
 
                         <div className="form__item">
-                            <Category/>
+                            <div className="select">
+                                <Categories/>
+                            </div>
+
                         </div>
                         <button className="form__btn btn" onClick={(e) => submit(e)}>Start</button>
                     </form>

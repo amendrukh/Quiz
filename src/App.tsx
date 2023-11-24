@@ -9,8 +9,9 @@ import {NotFoundPage} from "./components/NotFoundPage";
 import {AlertProvider} from "./alert/AlertContext";
 import {Alert} from "./alert/Alert";
 import {PlayerProvider} from "./player/playerContext";
-import {Category} from "./components/Category/Category";
+import {Categories} from "./components/Category/Categories";
 import {Winner} from "./components/Winner";
+import Select from "react-select/base";
 
 function App() {
     return (
@@ -27,7 +28,7 @@ function App() {
                             <Route path="quiz" element={<Quiz/>}></Route>
                             <Route path="quiz/winner" element={<Winner/>}></Route>
                             <Route path="*" element={<NotFoundPage/>}/>
-                            <Route path="category" element={<Category/>}></Route>
+                            <Route path="category" element={<Categories/>}></Route>
                         </Route>
                     </Routes>
                 </PlayerProvider>
