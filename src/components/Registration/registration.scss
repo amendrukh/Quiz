@@ -1,135 +1,115 @@
 @import "src/styles/general";
 
-input {
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-  background-color: #004643;
-}
-
 .select {
   width: 100%;
   color: map-get($colors, "black");
   background-color: unset;
 }
-//select {
-//  width: 100%;
-//  -webkit-appearance: none;
-//  -moz-appearance: none;
-//  appearance: none;
-//  padding: 0;
-//  margin: 10px 0 40px 0;
-//  border: unset;
-//  font: {
-//    size: 1.5rem;
-//    weight: normal;
-//  }
-//  text-align: center;
-//  //background-color: unset;
-//  color: black;
-//  cursor: pointer;
-//}
-//
-//select:focus-visible {
-//  outline: none;
-//  border-color: transparent;
-//  box-shadow: unset;
-//}
-//
-//select:focus,
-//select:hover
-//{
-//  box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.25);
-//}
-//
-//select option {
-//  padding: 10px;
-//  font-size: 16px;
-//}
 
 .registration {
   width: 100%;
   height: 100%;
+  box-sizing: border-box;
 
-  .registration__header {
+  &__header {
     height: 50%;
   }
 
-  .registration__main {
-    display: flex;
-    width: 100%;
-    height: 50%;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .registration__main-form {
-    width: 100%;
-    height: 80%;
+  &__main {
     position: relative;
+    width: 100%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
 
-    .form__item {
-      width: 50%;
-      height: 80%;
-      display: inline-flex;
-      flex-direction: column;
+    &-form,
+    &-btn {
+      display: grid;
       align-items: center;
+    }
+
+    &-form {
+      grid-template-rows: 1fr 1fr;
+      height: 70%;
+    }
+
+    &-btn {
+      height: 30%;
+      justify-content: center;
+      align-items: unset;
+      cursor: pointer;
+    }
+  }
+
+  .form {
+    &__item {
+      width: 100%;
+      height: 100%;
+      font: {
+        size: 1.5rem;
+        weight: bold;
+      }
+    }
+  }
+
+  .playerName {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    align-items: center;
+
+    &__label {
       color: map-get($colors, "white");
       font: {
         size: 2rem;
         weight: bold;
       }
-
-      .form__item-label {
-        width: 100%;
-      }
-
-      .playerName {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-
-        .playerName__input {
-          width: 100%;
-          font: {
-            size: 1.5rem;
-            weight: normal;
-          }
-          text-align: center;
-          background-color: unset;
-          color: map-get($colors, "white");
-
-        }
-
-        .playerName__input:focus,
-        .playerName__input:hover {
-          color: map-get($colors, "white");
-          box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.25);
-        }
-
-        .playerName__errorMessage {
-          padding: 0 0 0 10px;
-          font: {
-            size: 1rem;
-            weight: normal;
-          }
-          position: absolute;
-          top: 35%;
-          width: max-content;
-          color: map-get($colors, "yello-orange");
-        }
-      }
-
     }
-    .form__btn:hover {
-      background-color: map-get($colors, "white");
-      color: map-get($colors, "yello-orange");
-      box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.25);
+
+    &__input {
+      height: 50%;
+      font: {
+        size: 2rem;
+        weight: normal;
+      }
+      text-align: center;
+      background-color: unset;
+      color: map-get($colors, "white");
+
+      &:focus,
+      &:hover {
+        color: map-get($colors, "white");
+        box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.25);
+      }
+    }
+
+    &__errorMessage {
+      position: absolute;
+      max-width: 250px;
+      min-width: 250px;
+      bottom: 73%;
+      right: 70px;
+      text-align: start;
+      color: map-get($colors, "red");
+      font: {
+        size: 1rem;
+        weight: bold;
+      }
+    }
+  }
+
+  .category {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    z-index: 2;
+
+    &__label {
+      color: map-get($colors, "white");
+      font: {
+        size: 2rem;
+        weight: bold;
+      }
     }
   }
 }

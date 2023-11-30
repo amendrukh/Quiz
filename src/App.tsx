@@ -7,18 +7,16 @@ import {Registration} from "./components/Registration/Registration";
 import {Quiz} from "./components/Quiz/Quiz";
 import {NotFoundPage} from "./components/NotFoundPage";
 import {AlertProvider} from "./alert/AlertContext";
-import {Alert} from "./alert/Alert";
 import {PlayerProvider} from "./player/playerContext";
 import {Categories} from "./components/Category/Categories";
-import {Winner} from "./components/Winner";
-import Select from "react-select/base";
+import {Winner} from "./components/Winner/Winner";
 
 function App() {
     return (
         <div className="App">
             <div className="bubble"></div>
             <AlertProvider>
-                <Alert/>
+                {/*<Alert/>*/}
                 <PlayerProvider>
                     <Routes>
                         <Route path="/" element={<Layout/>}>

@@ -1,20 +1,37 @@
 @use "sass:map";
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap');
 
 $font-family: (
-        "Baloo" : "Baloo 2, sans-serif;"
+        "Sans" : "Open Sans, sans-serif"
 );
 
 $colors: (
         "dark teal": #004643,
+        "light teal": #ABD1C6,
         "white": #FFFFFF,
         "yello-orange" : #F8C660,
         "black": #000000,
         "light-gray": #eff0f3,
+        "red": #e11e1e
 );
 
 a {
   text-decoration: none;
+}
+
+button {
+  background-color: unset;
+}
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background-color: unset;
+  text-align: center;
 }
 
 p {
@@ -25,15 +42,19 @@ p {
   height: 100%;
   display: inline-block;
   font: {
-    family: map-get($font-family, "Baloo");
+    family: map-get($font-family, "Roboto");
     size: 1rem;
     weight: normal;
   }
+  box-sizing: border-box;
+  padding: 40px 0 40px 0;
 }
 
 .btn {
   min-width: 180px;
   min-height: 80px;
+  max-width: 205px;
+  max-height: 80px;
   font: {
     size: 2rem;
     weight: bold;
@@ -44,6 +65,7 @@ p {
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
+  z-index: 1;
 }
 
 .btn:hover {

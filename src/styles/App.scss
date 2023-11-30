@@ -7,6 +7,8 @@
   text-align: center;
   background: map-get($colors, "dark teal");
   background-size: cover;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 .bubble {
