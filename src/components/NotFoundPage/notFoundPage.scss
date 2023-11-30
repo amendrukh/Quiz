@@ -1,0 +1,58 @@
+@import "src/styles/general";
+
+.notFoundPage {
+  display: grid;
+  width: 100%;
+  height: 100%;
+
+  .notFoundPage__main {
+    width: 80%;
+    height: 60%;
+    display: grid;
+    align-items: center;
+    margin: auto;
+    gap: 20px;
+    grid-template-rows: 4fr 1fr 1fr 1fr;
+
+    .notFoundPage__main-item {
+
+    }
+
+    .notFoundPage__main-title {
+      font: {
+        size: 10rem;
+        weight: bold;
+      };
+      color: map-get($colors, "white");
+      text-shadow: rgba(0, 0, 0, 0.5) 1px 0 10px;
+    }
+
+    .notFoundPage__main-subtitle {
+      font: {
+        size: 2rem;
+        weight: bold;
+      };
+      color: map-get($colors, "yello-orange");
+      text-shadow: rgba(0, 0, 0, 0.5) 1px 0 10px;
+    }
+
+    .notFoundPage__main-desc {
+      font: {
+        size: 1rem;
+        weight: bold;
+      };
+      color: map-get($colors, "white");
+      text-shadow: rgba(0, 0, 0, 0.5) 1px 0 10px;
+    }
+
+    .notFoundPage__main-btn {
+      position: relative;
+      z-index: 2;
+
+      & .btn {
+        max-width: max-content;
+        padding: 10px;
+      }
+    }
+  }
+}

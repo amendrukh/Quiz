@@ -1,38 +1,66 @@
 @import "src/styles/general";
+@import "perfect-scrollbar/css/perfect-scrollbar.css";
 
-.quizStory {
-  &.active {
-    .App & {
-      height: 100%;
-    }
-  }
+.ps--active-y {
+  //height: 450px;
+  //overflow: hidden;
+  //margin-right: 2px;
+}
+
+.quizStory::-webkit-scrollbar {
+  display: none;
 }
 
 .quizStory {
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.quizStory {
+  position: relative;
   display: none;
   font: {
-    size: 0.8rem;
+    size: 1rem;
     weight: normal;
   };
   align-items: center;
+  padding: 0 20px 0 0;
+  gap: 10px;
 
+  .quizStory__title {
+    font: {
+      size: 1.8rem;
+      weight: bold;
+    };
+
+    color: map-get($colors, "dark teal");
+  }
   .story__question {
     font: {
-      size: 1rem;
+      size: 1.2rem;
       weight: bold;
     };
     text-align: justify;
+    padding-bottom: 10px;
   }
   .story__checkAnswers  {
     display: grid;
     font: {
-      size: 0.7rem;
-      weight: normal;
+      size: 1rem;
+      weight: bold;
     };
     align-items: center;
     justify-content: center;
     grid-template-columns: 1fr 1fr;
+
+    .checkAnswers__correct {
+      color: #e1a936;
+    }
   }
+
 }
 .winner__main .info.active {
   display: grid;
@@ -40,8 +68,6 @@
 
 .winner__main .quizStory.active{
   display: grid;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 
 .winner {
@@ -51,13 +77,13 @@
   z-index: 2;
 
   &__main {
+    position: relative;
     width: 100%;
     height: 100%;
     display: grid;
-    align-items: center;
     background-color: map-get($colors, "light-gray");
     box-shadow: 0 0 12px 6px rgba(0, 0, 0, 0.25);
-    border-radius: 20px 5%/20px;
+    border-radius: 20px;
     padding: 30px;
     box-sizing: border-box;
     grid-template-rows: 4fr 1fr;

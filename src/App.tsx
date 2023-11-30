@@ -5,7 +5,7 @@ import {Layout} from "./components/Layout";
 import {HomePage} from "./components/HomePage/HomePage";
 import {Registration} from "./components/Registration/Registration";
 import {Quiz} from "./components/Quiz/Quiz";
-import {NotFoundPage} from "./components/NotFoundPage";
+import {NotFoundPage} from "./components/NotFoundPage/NotFoundPage";
 import {AlertProvider} from "./alert/AlertContext";
 import {PlayerProvider} from "./player/playerContext";
 import {Categories} from "./components/Category/Categories";
