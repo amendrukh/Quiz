@@ -16,11 +16,7 @@ function Quiz() {
     const {playerInfo, updatePlayerInfo} = usePlayer();
     const navigate = useNavigate();
     const goWinner = () => navigate("winner", {replace: true, state: {questions}});
-    console.log(loading)
-    console.log(questions)
-    // if (questions.length === 0) {
-    //     return null;
-    // }
+
     const initialQuestion = questions[currentQuestion];
 
     function warningMessage() {

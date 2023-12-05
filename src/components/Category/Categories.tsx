@@ -11,7 +11,6 @@ interface IOption {
 
 export function Categories() {
     const {trivia_categories, loading} = useCategory();
-    console.log(loading)
     const {updateCategory} = usePlayer();
     const location = useLocation();
     const isLogin = location.state?.player;

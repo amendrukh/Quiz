@@ -8,7 +8,7 @@ interface IAlertProvider {
 }
 
  export const CustomLink = ({children,  to, className, ...props}:IAlertProvider) => {
-     console.log(className)
+
     const match = useMatch(to);
      // const color = () => match ? "#004643" : "white";
     return (
