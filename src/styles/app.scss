@@ -1,0 +1,59 @@
+@import "src/styles/general";
+
+.quizBody {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background: map-get($colors, "dark teal");
+  background-size: cover;
+  box-sizing: border-box;
+
+  @include media("min", "sm") {
+    font: {
+      size: map-get($font-sizes, "sm");
+    };
+  }
+
+  @include media("min", "md") {
+    font: {
+      size: map-get($font-sizes, "md");
+    };
+  }
+
+  @include media("min", "lg") {
+    font: {
+      size: map-get($font-sizes, "lg");
+    };
+  }
+
+  @include media("min", "xl") {
+    font: {
+      size: map-get($font-sizes, "xl");
+    };
+  }
+
+  @include media("min", "xxl") {
+    font: {
+      size: map-get($font-sizes, "xxl");
+    };
+  }
+
+  &__bg {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../image/bubbles.png");
+    background-size: cover;
+    opacity: 0.2;
+    z-index: 0;
+  }
+}
+
+
+
+
+

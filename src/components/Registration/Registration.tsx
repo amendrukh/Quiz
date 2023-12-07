@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {usePlayer} from "../../player/playerContext";
 import {IValidatePlayerName} from "../../models";
 import {Categories} from "../Category/Categories";
@@ -14,6 +14,10 @@ function Registration() {
     const [inputValue, setInputValue] = useState("");
     const [errorMessage, setErrorMessage] = useState<string | undefined | null>(undefined);
     const {updatePlayerData} = usePlayer();
+    const location = useLocation();
+    const isLogin = location.state?.player;
+
+    console.log(isLogin)
 
     function validatePlayerName({e, name}: IValidatePlayerName) {
         e.preventDefault();
@@ -40,13 +44,18 @@ function Registration() {
         const modStr = (playerName: string) => playerName[0].toUpperCase() + playerName.slice(1);
         const goQuiz = () => navigate("/quiz", {replace: true});
 
+
+        if (isLogin) {
+            return goQuiz();
+        }
+
         if (errorMessage === undefined || typeof errorMessage === "string") {
             return null;
         }
         updatePlayerData(modStr(inputValue));
         return goQuiz();
     }
-
+    // "registration__main-form form"
     return (
         <>
             {loading && <Loader/>}
@@ -56,8 +65,8 @@ function Registration() {
                         <Header/>
                     </div>
                     <div className="registration__main">
-                        <form className="registration__main-form form">
-                            <div className="form__item playerName">
+                        <form className={!isLogin ? "registration__main-form form" : "registration__main-form form isLogin"}>
+                            {!isLogin && <div className="form__item playerName">
                                 <label className="playerName__label">Enter your name:</label>
                                 <div className="playerName__desc">
                                     <input className="playerName__desc-item playerName__input"
@@ -75,7 +84,7 @@ function Registration() {
                                         </div>
                                     }
                                 </div>
-                            </div>
+                            </div>}
                             <div className="form__item category">
                                 <div className="category__label">Select Category:</div>
                                 <div className="category__selection">

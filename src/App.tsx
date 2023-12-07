@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/App.scss';
+import "./styles/app.scss"
 import {Routes, Route} from "react-router-dom";
 import {Layout} from "./components/Layout";
 import {HomePage} from "./components/HomePage/HomePage";
@@ -13,10 +13,9 @@ import {Winner} from "./components/Winner/Winner";
 
 function App() {
     return (
-        <div className="App">
-            <div className="bubble"></div>
+        <div className="quizBody">
+            <div className="quizBody__bg"></div>
             <AlertProvider>
-                {/*<Alert/>*/}
                 <PlayerProvider>
                     <Routes>
                         <Route path="/" element={<Layout/>}>

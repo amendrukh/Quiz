@@ -18,7 +18,7 @@ export function Categories() {
     const navigate = useNavigate();
     const goQuiz = () => navigate("/quiz", {replace: true});
 
-    const [...options]: IOption[] = trivia_categories.map(item => ({
+    const options: IOption[] = trivia_categories.map(item => ({
         label: item.name,
         value: item.id.toString()
     }));
@@ -36,9 +36,9 @@ export function Categories() {
     return (
         <>
             <Select options={options} onChange={handleChange} className="react-select-container"
-                    classNamePrefix="react-select"/>
-            {isLogin &&
-                <button onClick={goQuiz}>Start game</button>}
+                    classNamePrefix="react-select" defaultValue={options[0]}/>
+            {/*{isLogin &&*/}
+            {/*    <button onClick={goQuiz}>Start game</button>}*/}
         </>
     )
 }
